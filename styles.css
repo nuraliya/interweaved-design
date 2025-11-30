@@ -1,0 +1,434 @@
+/* Move @import to the very top */
+@import url('https://cdn.glitch.global/b87672a1-7584-45f0-9836-aaf90e598828/ABCOraclePlusVariableEdu-Regular.woff?v=1749578637317');
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background: #FFF4E8;
+    background: linear-gradient(to top, #566FEE, transparent), #FFF4E8;
+    background-attachment: fixed;
+    font-family: "ABC Oracle Plus Variable Edu", Inter, sans-serif;
+    min-height: 100vh;
+    overflow-x: hidden;
+    overflow-y: auto;
+    position: relative;
+}
+
+/* Custom scrollbar for the entire page */
+body::-webkit-scrollbar {
+    width: 6px;
+}
+
+body::-webkit-scrollbar-track {
+    background: #FEF4E8;
+    background: rgba(254, 244, 232, 0.1);
+}
+
+body::-webkit-scrollbar-thumb {
+    background: #A38007;
+    background: rgba(163, 128, 7, 0.4);
+    border-radius: 3px;
+}
+
+body::-webkit-scrollbar-thumb:hover {
+    background: #A38007;
+    background: rgba(163, 128, 7, 0.6);
+}
+
+.save-btn {
+    border-radius: 100px;
+    bottom: 20px;
+    color: #FEF4E8;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: 300;
+    left: 20px;
+    padding: 8px 12px;
+    position: fixed;
+    text-shadow: 0 3px 20px rgba(0, 0, 0, 0.3);
+    transition: all 0.2s ease;
+    user-select: none;
+    z-index: 1000;
+}
+
+.save-btn:hover {
+    transform: scale(1.09);
+}
+
+.save-btn:active {
+    transform: scale(0.95);
+}
+
+.container {
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    min-height: 100vh;
+    padding-bottom: 200px;
+    position: relative;
+    width: 100vw;
+}
+
+.main-text {
+    color: #A38007;
+    font-size: 32px;
+    font-weight: 300;
+    left: 50%;
+    letter-spacing: 0.64px;
+    margin: 0;
+    pointer-events: none;
+    position: absolute;
+    text-align: center;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    white-space: nowrap;
+    z-index: 100;
+}
+
+.alt-text-container {
+    left: 50%;
+    max-width: 600px;
+    padding-right: 10px;
+    position: absolute;
+    text-align: center;
+    top: calc(50% + 60px);
+    transform: translateX(-50%);
+    z-index: 101;
+}
+
+.alt-text {
+    color: #A38007;
+    font-size: 16px;
+    font-weight: 300;
+    line-height: 20px;
+    margin-bottom: 16px;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all 0.4s ease;
+}
+
+.alt-text.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Modern browsers with full support */
+.floating-text {
+    align-items: center;
+    background: transparent;
+    border-radius: 50%;
+    color: transparent;
+    cursor: pointer;
+    display: flex;
+    font-size: 16px;
+    height: 200px;
+    justify-content: center;
+    line-height: 20px;
+    max-width: 200px;
+    opacity: 1;
+    padding: 15px 20px;
+    position: absolute;
+    text-align: center;
+    transition: all 0.5s ease;
+    user-select: none;
+    width: 200px;
+}
+
+.floating-text::before {
+    background: #9D7B07;
+    border-radius: 50%;
+    content: '';
+    height: 100%;
+    left: 0;
+    position: absolute;
+    top: 0;
+    transition: all 0.5s ease;
+    width: 100%;
+    z-index: -1;
+}
+
+.floating-text:hover {
+    color: #FEF4E8;
+    transform: scale(1.2);
+}
+
+.floating-text:hover::before {
+    filter: blur(25px);
+    opacity: 0.6;
+    transform: scale(1.5);
+}
+
+.floating-text.editable {
+    background: transparent;
+    color: transparent;
+    font-weight: 300;
+    transition: all 0.5s ease;
+}
+
+.floating-text.editable::before {
+    background: #9D7B07;
+    border-radius: 50%;
+    content: '';
+    height: 100%;
+    left: 0;
+    position: absolute;
+    top: 0;
+    transition: all 0.5s ease;
+    width: 100%;
+    z-index: -1;
+}
+
+.floating-text.editable:hover {
+    color: #FEF4E8;
+    transform: scale(1.2);
+}
+
+.floating-text.editable:hover::before {
+    filter: blur(25px);
+    opacity: 0.6;
+    transform: scale(1.5);
+}
+
+.floating-text.editable input {
+    background: transparent;
+    border: none;
+    color: transparent;
+    font-family: inherit;
+    font-size: inherit;
+    font-weight: inherit;
+    outline: none;
+    position: relative;
+    text-align: center;
+    width: 100%;
+    z-index: 1;
+}
+
+.floating-text.editable:hover input {
+    color: #FEF4E8;
+}
+
+.floating-text.editable input:focus {
+    color: #FEF4E8;
+    outline: 2px solid #FEF4E8;
+    outline-offset: 2px;
+}
+
+.floating-text.editable input::placeholder {
+    color: transparent;
+    font-style: italic;
+}
+
+.floating-text.editable:hover input::placeholder {
+    color: #FEF4E8;
+}
+
+.custom-text {
+    color: #A38007;
+    display: inline-block;
+    font-size: 16px;
+    font-weight: 300;
+    line-height: 20px;
+    margin-bottom: 16px;
+    opacity: 0;
+    padding-right: 25px;
+    position: relative;
+    transform: translateY(20px);
+    transition: all 0.4s ease;
+}
+
+.custom-text.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.remove-btn {
+    align-items: center;
+    background: #A38007;
+    border: 1px solid #FEF4E8;
+    border-radius: 50%;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+    color: #FEF4E8;
+    cursor: pointer;
+    display: flex;
+    font-size: 12px;
+    font-weight: 100;
+    justify-content: center;
+    line-height: 1;
+    width: 10px;
+    height: 10px;
+    position: absolute;
+    right: 0;
+    top: 0;
+    transition: all 0.2s ease;
+    z-index: 10;
+}
+
+.remove-btn:hover {
+    background: #A38007;
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.25);
+    transform: scale(1.05);
+}
+
+.floating-text:active {
+    transform: scale(0.98);
+}
+
+/* Floating animations for each text block */
+.text-1 {
+    animation: float1 8s ease-in-out infinite;
+    left: 10%;
+    top: 15%;
+}
+
+.text-2 {
+    animation: float2 9s ease-in-out infinite;
+    right: 8%;
+    top: 25%;
+}
+
+.text-3 {
+    animation: float3 7s ease-in-out infinite;
+    bottom: 30%;
+    left: 8%;
+}
+
+.text-4 {
+    animation: float4 10s ease-in-out infinite;
+    bottom: 15%;
+    right: 12%;
+}
+
+.text-5 {
+    animation: float5 6s ease-in-out infinite;
+    left: 40%;
+    top: 8%;
+}
+
+.text-6 {
+    animation: float6 8.5s ease-in-out infinite;
+    bottom: 8%;
+    left: 45%;
+}
+
+.text-7 {
+    animation: float7 9.5s ease-in-out infinite;
+    left: 5%;
+    top: 45%;
+}
+
+.text-8 {
+    animation: float8 7.5s ease-in-out infinite;
+    right: 5%;
+    top: 65%;
+}
+
+.text-9 {
+    animation: float9 8.5s ease-in-out infinite;
+    left: 65%;
+    top: 20%;
+}
+
+.text-10 {
+    animation: float10 7.8s ease-in-out infinite;
+    bottom: 40%;
+    left: 20%;
+}
+
+.text-11 {
+    animation: float11 9.2s ease-in-out infinite;
+    left: 70%;
+    top: 70%;
+}
+
+@keyframes float1 {
+    0%, 100% { transform: translate(0, 0) rotate(0deg); }
+    25% { transform: translate(30px, -20px) rotate(1deg); }
+    50% { transform: translate(-15px, 25px) rotate(-1deg); }
+    75% { transform: translate(20px, 10px) rotate(0.5deg); }
+}
+
+@keyframes float2 {
+    0%, 100% { transform: translate(0, 0) rotate(0deg); }
+    33% { transform: translate(-25px, 20px) rotate(-0.5deg); }
+    66% { transform: translate(35px, -15px) rotate(1deg); }
+}
+
+@keyframes float3 {
+    0%, 100% { transform: translate(0, 30px) rotate(0deg); }
+    25% { transform: translate(40px, 130px) rotate(0.8deg); }
+    50% { transform: translate(-40px, -10px) rotate(-5.8deg); }
+    75% { transform: translate(15px, 5px) rotate(0.3deg); }
+}
+
+@keyframes float4 {
+    0%, 100% { transform: translate(0, 0) rotate(0deg); }
+    20% { transform: translate(-20px, -30px) rotate(-0.7deg); }
+    40% { transform: translate(25px, 15px) rotate(0.9deg); }
+    60% { transform: translate(-15px, 95px) rotate(-0.4deg); }
+    80% { transform: translate(30px, -160px) rotate(0.6deg); }
+}
+
+@keyframes float5 {
+    0%, 100% { transform: translate(0, 0) rotate(0deg); }
+    50% { transform: translate(-40px, 30px) rotate(-1deg); }
+}
+
+@keyframes float6 {
+    0%, 100% { transform: translate(0, 0) rotate(0deg); }
+    30% { transform: translate(35px, -25px) rotate(0.7deg); }
+    70% { transform: translate(-25px, 20px) rotate(-0.5deg); }
+}
+
+@keyframes float7 {
+    0%, 100% { transform: translate(0, 0) rotate(0deg); }
+    25% { transform: translate(-60px, 30px) rotate(-0.8deg); }
+    50% { transform: translate(80px, -20px) rotate(1.2deg); }
+    75% { transform: translate(-20px, -30px) rotate(-0.6deg); }
+}
+
+@keyframes float8 {
+    0%, 100% { transform: translate(0, 0) rotate(0deg); }
+    40% { transform: translate(-35px, -25px) rotate(-0.9deg); }
+    80% { transform: translate(30px, 35px) rotate(0.8deg); }
+}
+
+@keyframes float9 {
+    0%, 100% { transform: translate(0, 0) rotate(0deg); }
+    25% { transform: translate(-25px, 30px) rotate(-0.7deg); }
+    50% { transform: translate(20px, -35px) rotate(0.9deg); }
+    75% { transform: translate(35px, 15px) rotate(-0.4deg); }
+}
+
+@keyframes float10 {
+    0%, 100% { transform: translate(0, 0) rotate(0deg); }
+    33% { transform: translate(30px, -40px) rotate(0.6deg); }
+    66% { transform: translate(-20px, 25px) rotate(-0.8deg); }
+}
+
+@keyframes float11 {
+    0%, 100% { transform: translate(0, 0) rotate(0deg); }
+    30% { transform: translate(-30px, -30px) rotate(-1deg); }
+    60% { transform: translate(25px, 20px) rotate(0.7deg); }
+    90% { transform: translate(-15px, 35px) rotate(-0.5deg); }
+}
+
+@media (max-width: 768px) {
+    .main-text {
+        font-size: 2rem;
+    }
+    
+    .floating-text {
+        font-size: 16px;
+        font-weight: 300;
+        max-width: 150px;
+        padding: 12px 16px;
+    }
+    
+    .alt-text-container {
+        padding: 0 20px;
+    }
+}
